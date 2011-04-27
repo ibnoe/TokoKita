@@ -38,6 +38,11 @@
  * @param	array	a key/value pair hidden data
  * @return	string
  */
+function printData($data){
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+}
 if ( ! function_exists('form_open'))
 {
 	function form_open($action = '', $attributes = '', $hidden = array())
