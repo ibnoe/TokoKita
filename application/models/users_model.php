@@ -15,6 +15,7 @@ class Users_model extends CI_Model {
         $this->db->select('*');
         $this->db->where('email', $username);
         $this->db->where('password', md5($password));
+        $this->db->where('status',1);
         $query = $this->db->get('users', 1);
 
         if ($query->num_rows() == 1) {

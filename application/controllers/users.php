@@ -22,15 +22,22 @@ class Users extends CI_Controller {
             $password = $this->input->post('password');
 
             $user = $this->Users_model->cekLogin($email, $password);
-
+//            printData($user);exit;
             if (!empty($user)) {
+                $sessionData['id'] = $user['id'];
                 $sessionData['email'] = $user['email'];
                 $sessionData['full_name'] = $user['full_name'];
-                $sessionData['level'] = $user['status'];
+                $sessionData['level'] = $user['level'];
                 $sessionData['is_login'] = TRUE;
 
                 $this->session->set_userdata($sessionData);
-                redirect('users/dashboard');
+
+//                printData($this->session->userdata('level'));exit;
+                if ($this->session->userdata('level') == 1) {
+                    redirect('admin/dashboard');
+                } else {
+                    redirect('users/home');
+                }
             }
 
             $this->session->set_flashdata('message', 'Login Gagal!, email dan password tidak sesuai');
@@ -41,8 +48,10 @@ class Users extends CI_Controller {
         $this->load->view('template', $data);
     }
 
-    function dashboard() {
-        echo $this->session->userdata('full_name');
+    function home() {
+        $this->users_library->cekUserLogin();
+        $data['content'] = 'users/home';
+        $this->load->view('template', $data);
     }
 
     function logout() {
