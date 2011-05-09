@@ -4,6 +4,7 @@
 <?php if ($this->users_library->isLogin() == TRUE): ?>
 <?php echo anchor('admin/categories','Kategori');?> |
 <?php echo anchor('admin/products','Produk');?> |
+<?php echo anchor('admin/pages','Halaman');?> |
 <?php echo anchor('users/logout', 'Logout'); ?>
 
 <?php endif; ?>
