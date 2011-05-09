@@ -66,6 +66,18 @@ class Categories_model extends CI_Model {
         $this->db->delete('categories');
     }
 
+    function getDropDown(){
+        $this->db->select('id,name');
+        $query = $this->db->get('categories');
+
+        $data = array();
+        foreach ($query->result_array() as $row){
+            $data[$row['id']] = $row['name'];
+        }
+
+        return $data;
+    }
+
 }
 
 ?>

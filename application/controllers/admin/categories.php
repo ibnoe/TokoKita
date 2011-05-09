@@ -9,8 +9,9 @@ class Categories extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('Categories_model');
         $this->users_library->cekAdminLogin();
+        $this->load->model('Categories_model');
+        
     }
 
     function index() {
