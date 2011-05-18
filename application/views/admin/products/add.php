@@ -1,3 +1,4 @@
+<?php echo initialize_tinymce()?>
 <h2>Tambah Produk</h2>
 <?php if (validation_errors ()): ?>
     <div class="error_box">
@@ -9,7 +10,7 @@
         <?php echo form_open('admin/products/add', array('class' => 'niceform')) ?>
         <dl>
             <dt><label>SKU</label></dt>
-            <dd><?php echo form_input('sku', set_value('sku')) ?></dd>
+            <dd><?php echo form_input(array('name' => 'sku', 'value' => set_value('sku'),'size' => 20)); ?></dd>
         </dl>
         <dl>
             <dt><label>Nama</label></dt>

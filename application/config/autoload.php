@@ -64,7 +64,7 @@ $autoload['libraries'] = array('session','form_validation','database','Users_lib
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('form','url');
+$autoload['helper'] = array('form','url','tinymce');
 
 
 /*

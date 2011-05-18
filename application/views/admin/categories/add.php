@@ -1,3 +1,4 @@
+<?php echo initialize_tinymce()?>
 <h2>Tambah Kategori</h2>
 <?php if (validation_errors ()): ?>
     <div class="error_box">
@@ -14,7 +15,7 @@
 
         <dl>
             <dt><label>Deskripsi</label><dt>
-            <dd> <?php echo form_textarea(array('name'=>'description','value' => set_value('description'),'cols' => 40)); ?></dd>
+            <dd><?php echo form_textarea(array('name' => 'description', 'value' => set_value('description'), 'cols' => 40)); ?></dd>
         </dl>
         <dl class="submit">
             <?php echo form_submit('Submit', 'Simpan') ?>
