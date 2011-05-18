@@ -1,14 +1,18 @@
 <h2>List Kategori</h2>
 <?php if ($this->session->flashdata('message')): ?>
-<?php echo $this->session->flashdata('message'); ?>
+    <div class="valid_box">
+    <?php echo $this->session->flashdata('message'); ?>
+</div>
 <?php endif; ?>
 
-    <table border="1">
+
+    <table id="rounded-corner">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Aksi</th>
+
+                <th scope="col" class="rounded-company">No</th>
+                <th scope="col" class="rounded">Nama</th>
+                <th scope="col" class="rounded-q4" colspan="2">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +22,9 @@
                 <tr>
                     <td><?php echo $no ?></td>
                     <td><?php echo $category['name'] ?></td>
-                    <td><? echo anchor('admin/categories/edit/' . $category['id'], 'Edit'); ?> | <?php echo anchor('admin/categories/delete/' . $category['id'], 'Hapus', array('onClick' => "return confirm('Yakin akan menghapus data ini?')")) ?></td>
+                    <td><a href="<?php echo base_url() ?>index.php/admin/categories/edit/<?php echo $category['id']; ?>"><img src="<?php echo base_url(); ?>public/images/images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="<?php echo base_url() ?>index.php/admin/categories/delete/<?php echo $category['id']; ?>"  class="ask"><img src="<?php echo base_url(); ?>public/images/images/trash.png" alt="" title="" border="0" /></a></td>
+
                 </tr>
         <?php $no++; ?>
         <?php endforeach; ?>
@@ -31,5 +37,5 @@
             </table>
 
             <br/>
-<?php echo anchor('admin/categories/add', 'Tambah Kategori'); ?>
-<a href="#" onclick="confirm('test')">test</a>
+<a href="<?php echo base_url(); ?>index.php/admin/categories/add" class="bt_green"><span class="bt_green_lft"></span><strong>Tambah Kategori</strong><span class="bt_green_r"></span></a>
+

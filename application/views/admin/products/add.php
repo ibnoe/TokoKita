@@ -6,7 +6,6 @@
 <?php endif; ?>
     <div class="form">
         <fieldset>
-        <?php echo validation_errors() ?>
         <?php echo form_open('admin/products/add', array('class' => 'niceform')) ?>
         <dl>
             <dt><label>SKU</label></dt>
@@ -27,7 +26,7 @@
 
         <dl>
             <dt><label>Deskripsi</label><dt>
-            <dd> <?php echo form_textarea('description', set_value('description')); ?></dd>
+            <dd> <?php echo form_textarea(array('name'=>'description','value' => set_value('description'),'cols' => 40)); ?></dd>
         </dl>
         <dl>
             <dt><label>Kategori</label></dt>
