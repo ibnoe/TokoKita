@@ -10,9 +10,11 @@ class Users extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Users_model');
+//        for
     }
 
     function login() {
+
         $this->form_validation->set_rules('email', 'email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'password', 'required');
         $this->form_validation->set_error_delimiters('', '<br/>');
