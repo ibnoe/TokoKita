@@ -2,7 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>AdministratorDashboard | Team GIS</title>
+        <title>Admin Panel
+        <?php if(!empty($title)): ?>
+            | <?php echo $title;?>
+            <?php
+            endif;
+            ?>
+        </title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/style.css" />
         <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/clockp.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/clockh.js"></script>
@@ -50,7 +56,7 @@
             <div class="header">
                 <div class="logo"><a href="#"><img src="images/logo.gif" alt="" title="" border="0" /></a></div>
 
-                <div class="right_header">Welcome <?php echo $this->session->userdata('nama_lengkap')?>, <a href="<?php echo base_url()?>" target="_blank">Visit site</a> | <a href="<?php echo base_url()?>index.php/users/logout" class="logout">Logout</a></div>
+                <div class="right_header">Welcome <?php echo $this->session->userdata('full_name')?>, <a href="<?php echo base_url()?>" target="_blank">Visit site</a> | <a href="<?php echo base_url()?>index.php/users/logout" class="logout">Logout</a></div>
                 <div id="clock_a"></div>
             </div>
 
@@ -80,7 +86,7 @@
                             <div class="submenu">
                                 <ul>
                                     <li><?php echo anchor('admin/products/add','Tambah')?></li>
-                                    <li><?php echo anchor('admin/products','Daftar')?></li>
+                                    <li><?php echo anchor('admin/products','List Product')?></li>
 
                                 </ul>
                             </div>
@@ -88,7 +94,7 @@
                             <div class="submenu">
                                 <ul>
                                     <li><?php echo anchor('admin/categories/add','Tambah');?></li>
-                                    <li><?php echo anchor('admin/categories','Daftar');?></li>
+                                    <li><?php echo anchor('admin/categories','List Kategori');?></li>
 
                                 </ul>
                             </div>
@@ -96,7 +102,7 @@
                             <div class="submenu">
                                 <ul>
                                     <li><?php echo anchor('admin/pages/add','Tambah')?></li>
-                                    <li><?php echo anchor('admin/pages','Daftar');?></li>
+                                    <li><?php echo anchor('admin/pages','List Halaman');?></li>
 
                                 </ul>
                             </div>

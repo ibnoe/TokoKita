@@ -36,6 +36,8 @@ class Products extends CI_Controller {
             $this->session->set_flashdata('message', 'Berhasil menambah produk');
             redirect('admin/products/index');
         }
+
+        $data['title'] = 'Tambah Produk';
         $data['status'] = $this->Products_model->status;
         $data['categories'] = $this->Categories_model->getDropDown();
         $data['content'] = 'admin/products/add';
@@ -62,7 +64,6 @@ class Products extends CI_Controller {
             redirect('admin/products/index');
         }
         $data['product'] = $this->Products_model->getProductsById($id);
-        printData($data);
         $data['status'] = $this->Products_model->status;
         $data['categories'] = $this->Categories_model->getDropDown();
         $data['content'] = 'admin/products/edit';

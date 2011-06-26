@@ -41,7 +41,7 @@ line-height:32px;
 .NFButtonLeft {background:url(../images/img/button-left.gif) no-repeat 0 0;}
 .NFButtonRight {background:url(../images/img/button-right.gif) no-repeat 0 0;}
 /*Textareas*/
-.NFTextarea {border:none; background:none; font:12px/12px Arial, Helvetica, sans-serif; margin:0;}
+/*.NFTextarea {border:none; background:none; font:12px/12px Arial, Helvetica, sans-serif; margin:0;}
 .NFTextareaTop, .NFTextareaBottom {height:10px; clear:both; float:none; padding-right:15px;}
 .NFTextareaTop {background:url(../images/img/textarea-tr.gif) no-repeat 100% 0;}
 .NFTextareaBottom {background:url(../images/img/textarea-br.gif) no-repeat 100% 0; margin-bottom:0px;}
@@ -54,7 +54,7 @@ line-height:32px;
 .NFTextareaLeftH {background:url(../images/img/textarea-l-over.gif) repeat-y 0 0;}
 .NFTextareaRight, .NFTextareaRightH {padding-right:5px; padding-bottom:0;}
 .NFTextareaRight {background:url(../images/img/textarea-r-off.gif) repeat-y 100% 0;}
-.NFTextareaRightH {background:url(../images/img/textarea-r-off.gif) repeat-y 100% 100%;}
+.NFTextareaRightH {background:url(../images/img/textarea-r-off.gif) repeat-y 100% 100%;}*/
 /*Files*/
 .NFFileButton {padding-bottom:0; vertical-align:bottom; cursor:pointer; background:url(../images/img/file.gif) no-repeat 0 0; width:58px; height:34px;}
 .NFFile {position:relative; margin-bottom:5px;}
