@@ -1,14 +1,14 @@
 <?php echo initialize_tinymce() ?>
 <h2>Tambah Produk</h2>
-<?php if (validation_errors ()): ?>
+<?php if (validation_errors()): ?>
     <div class="error_box">
-    <?php echo validation_errors(); ?>
-</div>
+        <?php echo validation_errors(); ?>
+    </div>
 <?php endif; ?>
 
-    <div class="form">
-        <fieldset>
-        <?php echo form_open('admin/products/edit', array('class' => 'niceform')) ?>
+<div class="form">
+    <fieldset>
+        <?php echo form_open_multipart('admin/products/edit', array('class' => 'niceform')) ?>
         <?php echo form_hidden('id', $product['id']); ?>
         <dl>
             <dt><label>SKU</label></dt>
@@ -23,17 +23,29 @@
             <dd><?php echo form_input(array('name' => 'price', 'value' => set_value('price', isset($product['price']) ? $product['price'] : ''), 'size' => 20)); ?></dd>
         </dl>
         <dl>
+            <dt><label>Persen Diskon</label></dt>
+            <dd><?php echo form_input(array('name' => 'discount_percent', 'value' => set_value('discount_percent', isset($product['discount_percent']) ? $product['discount_percent'] : ''), 'size' => 20)); ?></dd>
+        </dl>
+        <dl>
             <dt><label>Stok</label></dt>
             <dd><?php echo form_input(array('name' => 'stock', 'value' => set_value('stock', isset($product['stock']) ? $product['stock'] : ''), 'size' => 20)); ?></dd>
         </dl>
-
+        
         <dl>
             <dt><label>Deskripsi</label><dt>
             <dd> <?php echo form_textarea(array('name' => 'description', 'value' => set_value('description', isset($product['description']) ? $product['description'] : ''), 'cols' => 50)); ?></dd>
         </dl>
         <dl>
+            <dt><label>Gambar</label></dt>
+            <dd><?php echo form_upload('image'); ?></dd>
+        </dl>
+        <dl>
             <dt><label>Kategori</label></dt>
             <dd><?php echo form_dropdown('category_id', $categories, $product['category_id']); ?></dd>
+        </dl>
+        <dl>
+            <dt><label>Ditandai sbg produk baru?</label></dt>
+            <dd><?php echo form_dropdown('is_new_product', array(0 => 'Tidak', 1 => 'Ya'),$product['is_new_product']); ?></dd>
         </dl>
         <dl>
             <dt><label>Status</label></dt>

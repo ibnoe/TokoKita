@@ -22,8 +22,10 @@ class Products_model extends CI_Model {
             'name' => $this->input->post('name'),
             'permalink' => url_title(strtolower($this->input->post('name'))),
             'price' => $this->input->post('price'),
+            'discount_percent' => $this->input->post('discount_percent'),
             'description' => $this->input->post('description'),
             'stock' => $this->input->post('stock'),
+            'is_new_product' => $this->input->post('is_new_product'),
             'status' => $this->input->post('status'),
             'category_id' => $this->input->post('category_id')
         );
@@ -31,8 +33,28 @@ class Products_model extends CI_Model {
         $this->db->insert('products', $data);
     }
 
+    function createImage($real, $medium, $thumb) {
+        $data = array(
+            'sku' => $this->input->post('sku'),
+            'name' => $this->input->post('name'),
+            'permalink' => url_title(strtolower($this->input->post('name'))),
+            'price' => $this->input->post('price'),
+            'discount_percent' => $this->input->post('discount_percent'),
+            'description' => $this->input->post('description'),
+            'stock' => $this->input->post('stock'),
+            'is_new_product' => $this->input->post('is_new_product'),
+            'status' => $this->input->post('status'),
+            'category_id' => $this->input->post('category_id'),
+            'real' => $real,
+            'medium' => $medium,
+            'thumb' => $thumb
+        );
+
+        $this->db->insert('products', $data);
+    }
+
     function getProducts() {
-        $this->db->select('p.id, p.name, p.sku, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->select('p.id, p.name, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
         $this->db->join('categories c', 'c.id = p.category_id');
         $query = $this->db->get('products p');
 
@@ -68,12 +90,34 @@ class Products_model extends CI_Model {
             'name' => $this->input->post('name'),
             'permalink' => url_title(strtolower($this->input->post('name'))),
             'price' => $this->input->post('price'),
+            'discount_percent' => $this->input->post('discount_percent'),
             'description' => $this->input->post('description'),
             'stock' => $this->input->post('stock'),
+            'is_new_product' => $this->input->post('is_new_product'),
             'status' => $this->input->post('status'),
             'category_id' => $this->input->post('category_id')
         );
 
+        $this->db->where('id', $id);
+        $this->db->update('products', $data);
+    }
+
+    function updateImage($id, $real, $medium, $thumb) {
+        $data = array(
+            'sku' => $this->input->post('sku'),
+            'name' => $this->input->post('name'),
+            'permalink' => url_title(strtolower($this->input->post('name'))),
+            'price' => $this->input->post('price'),
+            'discount_percent' => $this->input->post('discount_percent'),
+            'description' => $this->input->post('description'),
+            'stock' => $this->input->post('stock'),
+            'is_new_product' => $this->input->post('is_new_product'),
+            'status' => $this->input->post('status'),
+            'category_id' => $this->input->post('category_id'),
+            'real' => $real,
+            'medium' => $medium,
+            'thumb' => $thumb
+        );
         $this->db->where('id', $id);
         $this->db->update('products', $data);
     }

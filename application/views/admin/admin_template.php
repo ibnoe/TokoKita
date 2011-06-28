@@ -9,11 +9,11 @@
             endif;
             ?>
         </title>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/style.css" />
-        <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/clockp.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/clockh.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/ddaccordion.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/admin/css/style.css" />
+        <script type="text/javascript" src="<?php echo base_url() ?>public/admin/javascripts/clockp.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>public/admin/javascripts/clockh.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>public/admin/javascripts/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>public/admin/javascripts/ddaccordion.js"></script>
         <script type="text/javascript">
             ddaccordion.init({
                 headerclass: "submenuheader", //Shared CSS class name of headers group
@@ -37,7 +37,7 @@
             })
         </script>
 
-        <script type="text/javascript" src="<?php echo base_url() ?>public/javascripts/jconfirmaction.jquery.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>public/admin/javascripts/jconfirmaction.jquery.js"></script>
         <script type="text/javascript">
 
             $(document).ready(function() {
@@ -46,8 +46,8 @@
 
         </script>
 
-        <script language="javascript" type="text/javascript" src="<?php echo base_url() ?>public/javascripts/niceforms.js"></script>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url() ?>public/css/niceforms-default.css" />
+        <script language="javascript" type="text/javascript" src="<?php echo base_url() ?>public/admin/javascripts/niceforms.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url() ?>public/admin/css/niceforms-default.css" />
 
     </head>
     <body>
