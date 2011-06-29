@@ -37,6 +37,11 @@
  * @param	string
  * @return	string
  */
+function lihatData($data){
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+}
 if ( ! function_exists('site_url'))
 {
 	function site_url($uri = '')

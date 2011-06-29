@@ -38,6 +38,8 @@
  * @param	integer
  * @return	string
  */
+
+
 if ( ! function_exists('heading'))
 {
 	function heading($data = '', $h = '1')

@@ -54,8 +54,45 @@ class Products_model extends CI_Model {
     }
 
     function getProducts() {
-        $this->db->select('p.id, p.name, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->select('p.id, p.name,p.description, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
         $this->db->join('categories c', 'c.id = p.category_id');
+        $query = $this->db->get('products p');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+    function getProductsPublished() {
+        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->join('categories c', 'c.id = p.category_id');
+        $this->db->where('status', 1);
+        $query = $this->db->get('products p');
+
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+    function getNewProducts() {
+        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->join('categories c', 'c.id = p.category_id');
+        $this->db->where('status', 1);
+        $this->db->where('is_new_product', 1);
+        $query = $this->db->get('products p');
+
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+    function getDiscountedProducts() {
+        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->join('categories c', 'c.id = p.category_id');
+        $this->db->where('status', 1);
+        $this->db->where('discount_percent !=', 0);
         $query = $this->db->get('products p');
 
         if ($query->num_rows() > 0) {

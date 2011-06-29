@@ -13,9 +13,6 @@ class Pages extends CI_Controller {
     }
 
     function home() {
-        
-        $data['products'] = $this->Products_model->getProducts();
-        print_r($data);exit;
         $data['content'] = 'pages/home';
         $this->load->view('template', $data);
     }
