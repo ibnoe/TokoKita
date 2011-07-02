@@ -7,6 +7,8 @@
 
 class Pages extends CI_Controller {
 
+    var $template = 'template';
+
     function __construct() {
         parent::__construct();
         $this->load->model('Products_model');
@@ -14,8 +16,10 @@ class Pages extends CI_Controller {
 
     function home() {
         $data['content'] = 'pages/home';
-        $this->load->view('template', $data);
+        $this->load->view($this->template, $data);
     }
+
+   
 
 }
 

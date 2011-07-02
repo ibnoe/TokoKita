@@ -7,6 +7,8 @@
 
 class Users extends CI_Controller {
 
+    var $template = 'template';
+
     function __construct() {
         parent::__construct();
         $this->load->model('Users_model');
@@ -47,13 +49,13 @@ class Users extends CI_Controller {
         }
 
         $data['content'] = 'users/login';
-        $this->load->view('template', $data);
+        $this->load->view($this->template, $data);
     }
 
     function home() {
         $this->users_library->cekUserLogin();
         $data['content'] = 'users/home';
-        $this->load->view('template', $data);
+        $this->load->view($this->template, $data);
     }
 
     function logout() {

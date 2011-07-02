@@ -26,6 +26,13 @@ class Front_library {
         return $products;
     }
 
+    function getProductsByCategoryId($categoryId) {
+        $this->CI->load->model('Products_model');
+        $products = $this->CI->Products_model->getProductsByCategoryId($categoryId);
+        return $products;
+        
+    }
+
     function getCategories() {
         $this->CI->load->model('Categories_model');
         $categories = $this->CI->Categories_model->getCategories();

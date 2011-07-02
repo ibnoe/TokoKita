@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
         <title>Book Store</title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/front/css/style.css" />
+        <link rel="stylesheet" href="<?php echo base_url() ?>public/front/css/lightbox.css" type="text/css" media="screen" />
         <script src="<?php echo base_url() ?>public/front/javascripts/prototype.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>public/front/javascripts/scriptaculous.js?load=effects" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>public/front/javascripts/lightbox.js" type="text/javascript"></script>
@@ -37,4 +38,12 @@
         </div>
 
     </body>
+</div>
+<script type="text/javascript">
+
+    var tabber1 = new Yetii({
+        id: 'demo'
+    });
+
+</script>
 </html>

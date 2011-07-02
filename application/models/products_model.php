@@ -66,7 +66,22 @@ class Products_model extends CI_Model {
     function getProductsPublished() {
         $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
         $this->db->join('categories c', 'c.id = p.category_id');
-        $this->db->where('status', 1);
+        $this->db->where('p.status', 1);
+        $query = $this->db->get('products p');
+
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+    function getProductsByCategoryId($categoryId, $perPage = null, $offset = null) {
+        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->join('categories c', 'c.id = p.category_id');
+        $this->db->where('p.category_id', $categoryId);
+        $this->db->where('p.status', 1);
+
+        $this->db->limit($perPage, $offset);
         $query = $this->db->get('products p');
 
 
@@ -112,9 +127,10 @@ class Products_model extends CI_Model {
     }
 
     function getProductByPermalink($permalink) {
-        $this->db->select('*');
-        $this->db->where('permalink', $permalink);
-        $query = $this->db->get('products', 1);
+        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.category_id,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->join('categories c', 'c.id = p.category_id');
+        $this->db->where('p.permalink', $permalink);
+        $query = $this->db->get('products p', 1);
 
         if ($query->num_rows() == 1) {
             return $query->row_array();
