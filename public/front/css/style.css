@@ -169,7 +169,12 @@ img.right{
     float:left;
     padding:10px 0 0 0;
 }
-
+.user_menu{
+    width:300px;
+    float:left;
+    padding:10px 0 0 0;
+    margin-bottom: 20px;
+}
 /*--------feat_prod_box-----------*/
 .feat_prod_box{
     padding:10px 0 10px 10px;

@@ -17,6 +17,24 @@ class Products extends CI_Controller {
         $this->load->library('cart');
     }
 
+    function index($page = null) {
+        $products = $this->Products_model->getProductsPublished();
+
+        $config['uri_segment'] = 3;
+        $config['total_rows'] = count($products);
+        $config['per_page'] = 9;
+        $config['base_url'] = base_url() . 'index.php/products/index/';
+        $this->pagination->initialize($config);
+        $pages_count = ceil($config['total_rows'] / $config['per_page']);
+        $page = ($page == 0) ? 1 : $page;
+        $offset = $config['per_page'] * ($page - 1);
+
+        $data['products'] = $this->Products_model->getProductsPublished($config['per_page'], $offset);
+        $data['pagination'] = $this->pagination->create_links();
+        $data['content'] = 'products/index';
+        $this->load->view($this->template, $data);
+    }
+
     function detail($permalink) {
 
         $data['product'] = $this->Products_model->getProductByPermalink($permalink);
@@ -50,7 +68,7 @@ class Products extends CI_Controller {
             'qty' => 1,
             'price' => $product['price'],
             'name' => $product['name'],
-            'options' => array('pic' => $product['thumb'])
+            'options' => array('pic' => $product['thumb'], 'discount_percent' => $product['discount_percent'])
         );
 
         if ($this->cart->insert($data)) {

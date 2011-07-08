@@ -1,5 +1,5 @@
 
-<div class="title"><span class="title_icon"><img src="<?php echo base_url() ?>public/front/images/bullet1.gif" alt="" title="" /></span>Featured books</div>
+<div class="title"><span class="title_icon"><img src="<?php echo base_url() ?>public/front/images/bullet1.gif" alt="" title="" /></span>Buku Kami</div>
 <?php $products = $this->front_library->getFeaturedProducts(); ?>
 <?php if ($products): ?>
     <?php foreach ($products as $product): ?>

@@ -2,7 +2,7 @@
 
     <?php $this->load->view('widget/cart') ?>
 
-
+    <?php $this->load->view('widget/user_menu') ?>
     <?php $this->load->view('widget/about'); ?>
 
     <div class="right_box">

@@ -1,6 +1,6 @@
 <?php $products = $this->front_library->getNewProducts()?>
 
-<div class="title"><span class="title_icon"><img src="<?php echo base_url() ?>public/front/images/bullet2.gif" alt="" title="" /></span>New books</div> 
+<div class="title"><span class="title_icon"><img src="<?php echo base_url() ?>public/front/images/bullet2.gif" alt="" title="" /></span>Buku Baru</div> 
 
 <?php if($products):?>
 <?php foreach($products as $product):?>

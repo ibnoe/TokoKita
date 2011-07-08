@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-        <title>Book Store</title>
+        <title>Toko Buku Online</title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/front/css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url() ?>public/front/css/lightbox.css" type="text/css" media="screen" />
         <script src="<?php echo base_url() ?>public/front/javascripts/prototype.js" type="text/javascript"></script>

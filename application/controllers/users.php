@@ -52,6 +52,49 @@ class Users extends CI_Controller {
         $this->load->view($this->template, $data);
     }
 
+    function register() {
+        $this->form_validation->set_rules('full_name', 'nama lengkap', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+        $this->form_validation->set_rules('password', 'password', 'required|matches[confirm_password]');
+        $this->form_validation->set_rules('confirm_password', 'konfirmasi password', 'required');
+        $this->form_validation->set_rules('phone', 'telepon', 'required');
+        $this->form_validation->set_rules('address', 'alamat lengkap', 'required');
+        $this->form_validation->set_rules('zip', 'kode pos', 'required');
+        $this->form_validation->set_error_delimiters('', '<br/>');
+
+        if ($this->form_validation->run() == TRUE) {
+            $this->Users_model->create();
+            $this->session->set_flashdata('message', 'Register sukses, silahkan login');
+            redirect('users/login');
+        }
+        $data['content'] = 'users/register';
+        $this->load->view($this->template, $data);
+    }
+
+    function profile() {
+
+        $this->form_validation->set_rules('full_name', 'nama lengkap', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+        $this->form_validation->set_rules('phone', 'telepon', 'required');
+        $this->form_validation->set_rules('address', 'alamat lengkap', 'required');
+        $this->form_validation->set_rules('zip', 'kode pos', 'required');
+        if ($this->input->post('password')):
+            $this->form_validation->set_rules('password', 'password', 'required|matches[confirm_password]');
+            $this->form_validation->set_rules('confirm_password', 'konfirmasi password', 'required');
+
+        endif;
+        $this->form_validation->set_error_delimiters('', '<br/>');
+
+        if ($this->form_validation->run() == TRUE) {
+            $this->Users_model->update($this->session->userdata('id'));
+            $this->session->set_flashdata('message', 'Profil telah disimpan');
+            redirect('users/profile');
+        }
+        $data['user'] = $this->Users_model->getUserById($this->session->userdata('id'));
+        $data['content'] = 'users/profile';
+        $this->load->view($this->template, $data);
+    }
+
     function home() {
         $this->users_library->cekUserLogin();
         $data['content'] = 'users/home';

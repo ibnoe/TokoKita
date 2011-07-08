@@ -63,10 +63,11 @@ class Products_model extends CI_Model {
         }
     }
 
-    function getProductsPublished() {
+    function getProductsPublished($perPage = null, $offset = null) {
         $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
         $this->db->join('categories c', 'c.id = p.category_id');
         $this->db->where('p.status', 1);
+        $this->db->limit($perPage, $offset);
         $query = $this->db->get('products p');
 
 
@@ -127,7 +128,7 @@ class Products_model extends CI_Model {
     }
 
     function getProductByPermalink($permalink) {
-        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.category_id,p.thumb,p.medium,p.real, p.price, p.stock, p.status, c.name as categoryName');
+        $this->db->select('p.id, p.name,p.description,p.permalink, p.sku,p.category_id,p.thumb,p.medium,p.real, p.price, p.discount_percent, p.stock, p.status, c.name as categoryName');
         $this->db->join('categories c', 'c.id = p.category_id');
         $this->db->where('p.permalink', $permalink);
         $query = $this->db->get('products p', 1);

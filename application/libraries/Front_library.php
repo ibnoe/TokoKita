@@ -30,7 +30,6 @@ class Front_library {
         $this->CI->load->model('Products_model');
         $products = $this->CI->Products_model->getProductsByCategoryId($categoryId);
         return $products;
-        
     }
 
     function getCategories() {
@@ -49,6 +48,18 @@ class Front_library {
         $this->CI->load->model('Pages_model');
         $page = $this->CI->Pages_model->getPagesByPermalink($permalink);
         return $page;
+    }
+
+    function generateRandomCode($length = 8) {
+        // Available characters
+        $chars = '0123456789abcdefghjkmnoprstvwxyz';
+
+        $Code = '';
+        // Generate code
+        for ($i = 0; $i < $length; ++$i) {
+            $Code .= substr($chars, (((int) mt_rand(0, strlen($chars))) - 1), 1);
+        }
+        return strtoupper($Code);
     }
 
 }

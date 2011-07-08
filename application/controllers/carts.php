@@ -28,6 +28,13 @@ class Carts extends CI_Controller {
         redirect('carts/index');
     }
 
+    function update() {
+
+        $this->cart->update($_POST);
+        $this->session->set_flashdata('message', 'Keranjang telah di update');
+        redirect('carts/index');
+    }
+
 }
 
 ?>
